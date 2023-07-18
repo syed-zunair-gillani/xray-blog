@@ -2,26 +2,65 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@layer components{
+  .heading{
+    @apply text-xl font-medium text-gray-800 font-roboto
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@font-face {
+  font-family: roboto;
+  src: url('../../public/fonts/Roboto-Regular.ttf');
+  font-weight: 400;
+}
+@font-face {
+  font-family: roboto;
+  src: url('../../public/fonts/Roboto-Medium.ttf');
+  font-weight: 500;
+}
+@font-face {
+  font-family: roboto;
+  src: url('../../public/fonts/Roboto-Light.ttf');
+  font-weight: 300;
+}
+@font-face {
+  font-family: roboto;
+  src: url('../../public/fonts/Roboto-Bold.ttf');
+  font-weight: 700;
+}
+@font-face {
+  font-family: opensans;
+  src: url('../../public/fonts/OpenSans-Bold.ttf');
+  font-weight: 700;
+}
+@font-face {
+  font-family: opensans;
+  src: url('../../public/fonts/OpenSans-Light.ttf');
+  font-weight: 300;
+}
+@font-face {
+  font-family: opensans;
+  src: url('../../public/fonts/OpenSans-Medium.ttf');
+  font-weight: 500;
+}
+@font-face {
+  font-family: opensans;
+  src: url('../../public/fonts/OpenSans-Regular.ttf');
+  font-weight: 300;
+}
+@font-face {
+  font-family: opensans;
+  src: url('../../public/fonts/OpenSans-SemiBold.ttf');
+  font-weight: 600;
+}
+
+/* variables */
+:root{
+    /* fonts  */
+     --opensans: opensans;
+     --roboto: roboto;
+     --primary: #f14902;
+}
+body{
+  font-family: var(--opensans);
 }
