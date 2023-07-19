@@ -3,10 +3,12 @@ import { Inter } from 'next/font/google'
 import { Main, PostDesign, RecentBlogPost } from '@/components/importer'
 import Container from '@/components/Container'
 import { data } from '@/components/recent-blog-post/RecentBlogPost'
+import {Posts} from '../config/queries'
+import client from '@/config/client'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Home() {
+export default function Home({AllPosts}:any) {
   return (
     <>
       <Main />
@@ -26,4 +28,14 @@ export default function Home() {
 
     </>
   )
+}
+
+
+export async function getStaticProps() {
+  const { data } = await client.query({
+    query: Posts,
+  })
+  const AllPosts = data?.blogs
+
+  return { props: { AllPosts } }
 }
