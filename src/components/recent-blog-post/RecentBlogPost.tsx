@@ -2,7 +2,7 @@ import React from 'react'
 import Container from '../Container'
 import { PostDesign } from '../importer'
 
-const RecentBlogPost = () => {
+const RecentBlogPost = ({data}:any) => {
      return (
           <Container>
                <h3 className='heading'>Recent blog posts</h3>
@@ -12,7 +12,7 @@ const RecentBlogPost = () => {
                     </div>
                     <div className='grid gap-6'>
                          {
-                              data.map((item:any,idx:number)=>{
+                              data.slice(1,3)?.map((item:any,idx:number)=>{
                                    return(
                                         <PostDesign key={idx} layout='2' data={item} />
                                    )
@@ -27,42 +27,3 @@ const RecentBlogPost = () => {
 export default RecentBlogPost
 
 
-export const data = [
-     {
-          author: 'Olivia Riya',
-          title: "Lorem ipsum dolor, sit",
-          image: '/images/image.jpeg',
-          excerpt: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nostrum tempore repellat in quaerat necessitatibus harum doloremque labore",
-          tags: [
-               {
-                    name: "Design"
-               },
-               {
-                    name: "Research"
-               },
-               {
-                    name: "Presontation"
-               },
-          ]
-
-     },
-     {
-          author: 'Olivia Riya',
-          title: "Lorem ipsum dolor, sit",
-          image: '/images/image.jpeg',
-          excerpt: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nostrum tempore repellat in quaerat necessitatibus harum doloremque labore",
-          tags: [
-               {
-                    name: "Design"
-               },
-               {
-                    name: "Research"
-               },
-               {
-                    name: "Presontation"
-               },
-          ]
-
-     }
-
-]
